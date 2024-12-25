@@ -37,8 +37,6 @@ npm install
 
 ### 1. Start the Apollo Server (Backend)
 
-In the `server` folder, start the Apollo server:
-
 ```bash
 npm run start:server
 ```
@@ -46,8 +44,6 @@ npm run start:server
 This will start the server on the port (e.g., `http://localhost:4000` and `ws://localhost:4000/graphql`), where the GraphQL API will be available.
 
 ### 2. Start the Client (Frontend)
-
-In the `client` folder, start the React application:
 
 ```bash
 npm run start:client
