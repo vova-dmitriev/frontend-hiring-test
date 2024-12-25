@@ -1,50 +1,73 @@
-# React + TypeScript + Vite
+# Test Assignment for Frontend Developers
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This repository contains a test task for frontend developers, specifically focusing on working with **Apollo Client** for managing GraphQL queries, mutations, and subscriptions. The goal of the task is to implement a messaging system where messages are fetched from a server using **pagination** and users can **send new messages** and handle **real-time updates** via **GraphQL subscriptions**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Task Breakdown
 
-## Expanding the ESLint configuration
+1. **Replace the `temp_data` variable** on the client-side with a query to fetch messages from the Apollo server. Messages should be fetched with pagination.
+2. **Implement message sending** using Apollo Client's `useMutation` hook.
+3. Handle **receiving** new messages and updating existing messages through GraphQL subscriptions.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Step 1: Clone the repository
+
+Clone the repository to your local machine:
+
+```bash
+git clone https://github.com/chatfuel-lab/frontend-hiring-test
+cd frontend-hiring-test
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Step 2: Install Dependencies
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Install the required dependencies:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
 ```
+
+---
+
+## Running the Project
+
+### 1. Start the Apollo Server (Backend)
+
+In the `server` folder, start the Apollo server:
+
+```bash
+npm run start:server
+```
+
+This will start the server on the port (e.g., `http://localhost:4000` and `ws://localhost:4000/graphql`), where the GraphQL API will be available.
+
+### 2. Start the Client (Frontend)
+
+In the `client` folder, start the React application:
+
+```bash
+npm run start:client
+```
+
+---
+
+## Submission Guidelines
+
+- Fork this repository and implement the changes as described above.
+- Create a pull request with your changes once the task is complete.
+- Make sure to commit regularly and write clear commit messages explaining your changes.
+- Include any additional details or challenges you faced in your PR description.
+
+---
+
+## Notes
+
+Notes
+
+- Make sure that pagination works correctly with Apollo Client.
+- Every second mutation sendMessage returns data with a delay. Ensure that the response from the mutation does not overwrite the data in the cache that has been updated via the subscription. You can check the freshness of the data by the updatedAt field in the message.
+- Server-side changes are not required. Your task is to solve all the problems on the client-side.
