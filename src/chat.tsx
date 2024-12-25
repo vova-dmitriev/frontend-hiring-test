@@ -42,7 +42,11 @@ export const Chat: React.FC = () => {
         <Virtuoso className={css.list} data={temp_data} itemContent={getItem} />
       </div>
       <div className={css.footer}>
-        <input type="text" className={css.textInput} />
+        <input
+          type="text"
+          className={css.textInput}
+          placeholder="Message text"
+        />
         <button>Send</button>
       </div>
     </div>
