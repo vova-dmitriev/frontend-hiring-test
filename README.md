@@ -54,9 +54,8 @@ npm run start:client
 ## Submission Guidelines
 
 - Fork this repository and implement the changes as described above.
-- Create a pull request with your changes once the task is complete.
 - Make sure to commit regularly and write clear commit messages explaining your changes.
-- Include any additional details or challenges you faced in your PR description.
+- After completing the task, contact the repository author or our HR.
 
 ---
 
