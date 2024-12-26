@@ -7,7 +7,7 @@ const PORT = 4000;
 
 const httpLink = new HttpLink({
   uri: (operation) =>
-    `http://localhost:${PORT}graphql?op=${operation.operationName}`,
+    `http://localhost:${PORT}/graphql?op=${operation.operationName}`,
 });
 
 const wsLink = new GraphQLWsLink(
