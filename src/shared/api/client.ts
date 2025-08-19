@@ -1,7 +1,9 @@
-import { ApolloClient, HttpLink, split, InMemoryCache } from "@apollo/client";
+import { ApolloClient, HttpLink, split } from "@apollo/client";
 import { GraphQLWsLink } from "@apollo/client/link/subscriptions";
 import { getMainDefinition } from "@apollo/client/utilities";
 import { createClient } from "graphql-ws";
+
+import { createCacheWithPolicies } from "./cache";
 
 const PORT = 4000;
 
@@ -28,7 +30,7 @@ const link = split(
   httpLink
 );
 
-const cache = new InMemoryCache({});
+const cache = createCacheWithPolicies();
 
 export const client = new ApolloClient({
   link,

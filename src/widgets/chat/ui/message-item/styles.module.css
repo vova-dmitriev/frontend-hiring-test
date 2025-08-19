@@ -1,22 +1,10 @@
-.root {
-  border: 1px solid #e4e5ea;
-  border-radius: 16px;
-  margin: auto;
-  width: 400px;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-}
-
-.container {
-  flex: auto;
-}
-
+/* Message item container */
 .item {
   display: flex;
   padding: 6px 16px;
 }
 
+/* Message bubble styles */
 .message {
   display: flex;
   flex-direction: column;
@@ -38,14 +26,15 @@
   border-radius: 12px 12px 4px;
 }
 
-.footer {
-  border-top: 1px solid #e4e5ea;
-  display: flex;
-  padding: 16px;
-  gap: 16px;
-  box-sizing: border-box;
+/* Message content */
+.messageText {
+  flex: 1;
 }
 
-.textInput {
-  flex: auto;
+/* Message status indicator */
+.messageStatus {
+  font-size: 12px;
+  margin-top: 4px;
+  text-align: right;
+  user-select: none;
 }

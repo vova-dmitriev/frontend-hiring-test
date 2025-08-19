@@ -6,11 +6,17 @@ enum MessageStatus {
   Read
 }
 
+enum MessageSender {
+  Admin
+  Customer
+}
+
 type Message {
   id: ID!
   text: String!
   status: MessageStatus!
   updatedAt: String!
+  sender: MessageSender!
 }
 
 type MessageEdge {
@@ -31,7 +37,11 @@ type MessagePage {
 }
 
 type Query {
-  messages(first: Int, after: MessagesCursor, before: MessagesCursor): MessagePage!
+  messages(
+    first: Int
+    after: MessagesCursor
+    before: MessagesCursor
+  ): MessagePage!
 }
 
 type Mutation {
