@@ -1,4 +1,4 @@
-import { Message } from "@entities/message";
+import { Message, MessageSender } from "@entities/message";
 import { useState, useCallback } from "react";
 
 import { useMessages } from "./useMessages";
@@ -63,9 +63,11 @@ export const useChat = (): UseChatReturn => {
 
   // Real-time update subscriptions
   useMessageSubscriptions({
-    onMessageAdded: () => {
+    onMessageAdded: (message) => {
+      const isMyMessage = message.sender === MessageSender.Admin;
+
       // If user is not at the bottom, show the notification
-      if (!isAtBottom) {
+      if (!isAtBottom && !isMyMessage) {
         setNewMessagesCount((count) => count + 1);
       }
     },

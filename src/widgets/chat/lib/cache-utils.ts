@@ -1,6 +1,7 @@
 import { ApolloCache } from "@apollo/client";
 import { Message } from "@entities/message";
-import { GET_MESSAGES } from "@shared/api";
+
+import { GET_MESSAGES } from "../api";
 
 type MessagesQueryShape = {
   messages: {
@@ -26,7 +27,7 @@ export const upsertMessageInCache = (
   const edges = existingData.messages.edges;
   const index = edges.findIndex((e) => e.node.id === message.id);
 
-  let newEdges: MessagesQueryShape["messages"]["edges"]; 
+  let newEdges: MessagesQueryShape["messages"]["edges"];
   if (index === -1) {
     const newEdge = {
       node: message,
@@ -82,5 +83,3 @@ export const removeTempMessagesByText = (
     },
   });
 };
-
-

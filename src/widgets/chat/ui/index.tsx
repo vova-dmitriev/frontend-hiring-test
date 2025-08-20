@@ -2,7 +2,7 @@ import cn from "clsx";
 import { FC, useCallback, useRef } from "react";
 import { VirtuosoHandle } from "react-virtuoso";
 
-import { useChat } from "../hooks";
+import { useChat } from "../lib";
 
 import { MessageInput } from "./message-input";
 import { MessageList } from "./message-list";

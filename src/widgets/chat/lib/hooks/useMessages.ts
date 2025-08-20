@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { Message, MessageEdge, MessagePage } from "@entities/message";
-import { GET_MESSAGES } from "@shared/api";
+
+import { GET_MESSAGES } from "../../api";
 
 export interface UseMessagesOptions {
   first?: number;

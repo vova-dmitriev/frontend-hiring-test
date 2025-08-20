@@ -1,7 +1,8 @@
 import { useMutation } from "@apollo/client";
 import { Message, MessageStatus, MessageSender } from "@entities/message";
-import { SEND_MESSAGE, GET_MESSAGES } from "@shared/api";
 import { v4 as uuidv4 } from "uuid";
+
+import { SEND_MESSAGE, GET_MESSAGES } from "../../api";
 
 export interface UseSendMessageReturn {
   sendMessage: (text: string) => Promise<Message | null>;
@@ -48,8 +49,6 @@ export const useSendMessage = (): UseSendMessageReturn => {
       if (!existingData) return;
 
       // Check if this message already exists in cache (might be added via subscription)
-      // Note: existence will be determined after removing temp edges
-
       const finalEdges = (() => {
         // Remove matching temp optimistic messages (same text, temp- id)
         const edgesWithoutTemps = existingData.messages.edges.filter((edge) => {
