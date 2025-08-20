@@ -1,6 +1,6 @@
 import { ApolloCache } from "@apollo/client";
-import { Message } from "@entities/message";
 
+import { Message } from "../../../entities/message";
 import { GET_MESSAGES } from "../api";
 
 type MessagesQueryShape = {
